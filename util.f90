@@ -4,7 +4,7 @@ CONTAINS
   ! Gfortran lacks QUERY() apparently.
   LOGICAL FUNCTION CONFIRM(PROMPT)
     ! PROMPT = One standard 80x25 console line long (max)
-    CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: PROMPT    
+    CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: PROMPT
     CHARACTER(LEN=1) :: CHOICE
     DO
        IF (PRESENT(PROMPT) .EQV. .TRUE.) THEN
@@ -31,7 +31,7 @@ CONTAINS
     OFFSET = 0
     DO
        ! Print offset as 7 hex characters
-       WRITE (*, '(Z7.7BZ,2X)', ADVANCE='NO'), OFFSET
+       WRITE (*, '(Z7.7BZ,2X)', ADVANCE='NO') OFFSET
        ! Get 16 bytes
        DO
           OFFSET = OFFSET + 1
@@ -40,7 +40,7 @@ CONTAINS
           !IF (OFFSET > LENGTH) THEN
              EXIT
           END IF
-       END DO       
+       END DO
        ! Newline
        WRITE (*, '(/$)')
        IF (OFFSET > LENGTH) EXIT
